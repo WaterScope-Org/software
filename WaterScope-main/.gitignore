@@ -1,0 +1,10 @@
+/__pycache__/
+/image_data/
+/timelapse_data/
+*.pyc 
+/integrate_folder/__pycache__
+/integrate_folder/yolo3/__pycache__
+.ipynb_checkpoints/count_colony_yolor-checkpoint.py
+.ipynb_checkpoints/count_colony_yolor-checkpoint.py
+.ipynb_checkpoints/count_colony_yolor-checkpoint.py
+.ipynb_checkpoints/autofocus-checkpoint.py

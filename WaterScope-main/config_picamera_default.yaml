@@ -1,0 +1,44 @@
+# Default LED brightness
+default_LED_RGB: [10,10,10]
+
+# exposure mode
+exposure_mode: 'off'
+
+# camera image taking resolution
+image_resolution: [2592,1944]
+
+# The analog gain offers higher sensitivity and less noise than using digital gain only
+analog_gain: 1.0
+digital_gain: 1.0
+
+# When queried, the shutter_speed property returns the shutter speed of the camera in microseconds, or 0 which indicates that the speed will be automatically determined
+# if high value does not work, need to decrease the fps for streaming
+shutter_speed: 7000
+
+# Auto white balance: The red and blue values are returned Fraction instances. The values will be between 0.0 and 8.0.
+awb_mode: 'off'
+
+# if not using auto, then you can change the awb_gains
+red_gain: 1.8
+blue_gain: 2.7
+
+# color saturation of the camera as an integer between -100 and 100. 
+saturation: -35
+
+# ISO Valid values are between 0 (auto) and 800 (1600 is not available?). 
+# ISO value is not used anyway as we are fixing the gains
+iso: 500
+
+# Central point, as defined by the calibration test
+focus_central_point: 49
+# range is plus/minus, so the total travel will be [central-range, central+range]
+focus_range: 30
+# the ratio, range from 0-1
+focus_box_ratio: 0.4
+
+#Bluetooth mac address for device ID
+mac_address: 'B8:27:EB:0F:E2:ED'
+
+#customer data
+location: 'Cambridge, UK'
+customer: 'WaterScope'
