@@ -1,0 +1,84 @@
+rules_version = '2';
+service cloud.firestore {
+    match /databases/{database}/documents {
+
+        function sampleFields(extraFields) {
+            return [
+                'comment',
+                'resultFlag',
+                'eColiform' ,
+                'otherColiform',
+                'coordinates'
+            ].concat(extraFields);
+        }
+
+        function sampleRequiredFields() {
+            return ['submissionTime', 'incubationTime', 'location'];
+        }
+
+        function sampleFieldTypes() {
+            let data = request.resource.data;
+
+            return data.get('resultFlag', ' ') is string &&
+                data.get('comment', ' ') is string &&
+                data.get('eColiform', 1) is int &&
+                data.get('otherColiform', 1) is int &&
+                data.location is string &&
+                data.submissionTime is timestamp &&
+                data.incubationTime is int;
+        }
+
+        function diagnosticFields() {
+            let data = request.resource.data;
+
+            return data.keys().hasAll([
+                    'temperature',
+                    'servo',
+                    'defogger',
+                    'incubator',
+                    'deviceTestCount',
+                    'batteryLevel',
+                    'averageFocusingPosition',
+                    'softwareVersion',
+                    'firmwareVersion',
+                    'location',
+                    'internet',
+                    'diagnosticTime'
+                ]) &&
+                data.temperature is float &&
+                data.servo is string &&
+                data.defogger is string &&
+                data.incubator is string &&
+                data.deviceTestCount is int &&
+                data.batteryLevel is int &&
+                data.averageFocusingPosition is float &&
+                data.softwareVersion is string &&
+                data.firmwareVersion is string &&
+                data.location is string &&
+                data.internet is string &&
+                data.diagnosticTime is timestamp;
+        }
+
+        match /devices/{device} {
+            allow get: if true;
+
+            allow list: if false;
+
+            allow create, update: if diagnosticFields();
+
+            allow delete: if false;
+
+            match /samples/{sampleID} {
+                allow read: if true;
+
+                allow create, update: if request.resource.data.keys().hasOnly(
+                    sampleFields(sampleRequiredFields())
+                ) && request.resource.data.keys().hasAll(
+                    sampleRequiredFields()
+                ) && sampleFieldTypes();
+
+                allow delete: if false;
+            }
+        }
+    }
+}

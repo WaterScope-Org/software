@@ -1,0 +1,85 @@
+{
+  "levels": [
+    {
+      "color": "54e81e",
+      "maxEColi": 0,
+      "maxColi": 0,
+      "title": "No bacteria",
+      "resultText": "This sample has no bacteria colonies.",
+      "explanation": "Shown when no bacteria was found in the sample."
+    },
+    {
+      "color": "fcdd14",
+      "maxEColi": 10,
+      "maxColi": 1,
+      "title": "Some bacteria",
+      "resultText": "This sample contains some bacteria colonies.",
+      "explanation": "Shown when some bacteria were detected, but still under the limit"
+    },
+    {
+      "color": "ff9800",
+      "maxEColi": 100,
+      "maxColi": null,
+      "title": "High bacteria count",
+      "resultText": "This sample has a high bacteria count.",
+      "explanation": "Shown when a high bacteria count was detected above the limit."
+    },
+    {
+      "color": "f44336",
+      "maxEColi": null,
+      "maxColi": null,
+      "title": "Very high bacteria count",
+      "resultText": "This sample contains a very high bacteria count.",
+      "explanation": "Shown when a very high bacteria count was detected, well above the limit."
+    }
+  ],
+  "too_many": {
+    "color": "f44336",
+    "maxEColi": null,
+    "maxColi": null,
+    "title": "Too many bacteria",
+    "resultText": "This sample contains a very high bacteria, too many to count.",
+    "explanation": "Shown when a sample contains a very high bacteria count, too many to count."
+  },
+  "overgrown": {
+    "color": "f44336",
+    "maxEColi": null,
+    "maxColi": null,
+    "title": "Too many bacteria",
+    "resultText": "This sample contains a very high bacteria, too many to count.",
+    "explanation": "Shown when a sample contains a very high bacteria count, too many to count."
+  },
+  "new": {
+    "color": "757575",
+    "maxEColi": null,
+    "maxColi": null,
+    "title": "New sample",
+    "resultOverride": "Sample not ready yet.",
+    "resultText": "This is a fresh sample, which still needs incubation time.",
+    "explanation": "Show when an usually fresh sample still needs incubation time."
+  },
+  "anomalous": {
+    "color": "9e6400",
+    "maxEColi": null,
+    "maxColi": null,
+    "title": "Anomalous sample",
+    "resultText": "This sample looks anomalous. Check the troubleshooting guide for more information.",
+    "explanation": "Shown when the sample looks anomalous. You may check the troubleshooting guide for more information."
+  },
+  "unsure": {
+    "color": "9e6400",
+    "maxEColi": null,
+    "maxColi": null,
+    "title": "Uncertain bacteria count",
+    "resultText": "Uncertain bacteria count. Check the troubleshooting guide for more information.",
+    "explanation": "Shown when the bacteria count is uncertain. You may check the troubleshooting guide for more information."
+  },
+  "chlorine": {
+    "color": "ff00ff",
+    "maxEColi": null,
+    "maxColi": null,
+    "title": "Chlorine level",
+    "resultText": "The free chlorine measurement is shown above.",
+    "explanation": "The recommended value for free chlorine residual in drinking water is 1 mg/L"
+  }
+}
